@@ -10,14 +10,10 @@ import UIKit
 
 class RootCollectionCell: UICollectionViewCell {
 
-    @IBOutlet weak var categoryImageView: UIImageView!
-
-    @IBOutlet weak var numberOfTasksLabel: UILabel!
-
-    @IBOutlet weak var categoryLabel: UILabel!
-
-    @IBOutlet weak var progressBarView: UIView!
-
-    @IBOutlet weak var percentageCompleteLabel: UILabel!
+    @IBOutlet private weak var categoryImageView: UIImageView!
+    @IBOutlet private weak var numberOfTasksLabel: UILabel!
+    @IBOutlet private weak var categoryLabel: UILabel!
+    @IBOutlet private weak var progressBarView: UIView!
+    @IBOutlet private weak var percentageCompleteLabel: UILabel!
     
 }

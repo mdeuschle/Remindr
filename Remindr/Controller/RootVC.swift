@@ -15,6 +15,7 @@ class RootVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
+        tableView.rowHeight = 280
     }
 }
 
@@ -28,6 +29,9 @@ extension RootVC: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "rootTableCell", for: indexPath) as? RootTableCell else {
+            return UITableViewCell()
+        }
+        return cell
     }
 }
