@@ -9,5 +9,15 @@
 import UIKit
 
 class RootCollectionCell: UICollectionViewCell {
+
+    @IBOutlet weak var categoryImageView: UIImageView!
+
+    @IBOutlet weak var numberOfTasksLabel: UILabel!
+
+    @IBOutlet weak var categoryLabel: UILabel!
+
+    @IBOutlet weak var progressBarView: UIView!
+
+    @IBOutlet weak var percentageCompleteLabel: UILabel!
     
 }
