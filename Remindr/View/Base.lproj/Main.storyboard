@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--RootVC-->
         <scene sceneID="Fbr-eY-SJH">
             <objects>
-                <viewController id="8QD-M1-GfG" sceneMemberID="viewController">
+                <viewController id="8QD-M1-GfG" customClass="RootVC" customModule="Remindr" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sVk-iq-LZv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,13 +22,44 @@
                                 <rect key="frame" x="0.0" y="236" width="375" height="371"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="rootTableCell" rowHeight="250" id="pmb-xV-nkI">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="rootTableCell" rowHeight="250" id="pmb-xV-nkI" customClass="RootTableCell" customModule="Remindr" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="250"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pmb-xV-nkI" id="GLG-Gg-uPP">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="249.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="lwP-nP-T0r">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="249.5"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="uHc-Gi-MMP">
+                                                        <size key="itemSize" width="50" height="50"/>
+                                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    </collectionViewFlowLayout>
+                                                    <cells>
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="rootCollectionCell" id="Eq5-L3-24g" customClass="RootCollectionCell" customModule="Remindr" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                            </view>
+                                                        </collectionViewCell>
+                                                    </cells>
+                                                </collectionView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="lwP-nP-T0r" secondAttribute="bottom" id="5S5-We-kFo"/>
+                                                <constraint firstItem="lwP-nP-T0r" firstAttribute="leading" secondItem="GLG-Gg-uPP" secondAttribute="leading" id="7xL-aL-HDA"/>
+                                                <constraint firstItem="lwP-nP-T0r" firstAttribute="top" secondItem="GLG-Gg-uPP" secondAttribute="top" id="CAV-0N-k4y"/>
+                                                <constraint firstAttribute="trailing" secondItem="lwP-nP-T0r" secondAttribute="trailing" id="a0o-hg-r3e"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="collectionView" destination="lwP-nP-T0r" id="BKt-I3-DZF"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -43,6 +74,9 @@
                         <viewLayoutGuide key="safeArea" id="B3D-jR-P1g"/>
                     </view>
                     <navigationItem key="navigationItem" id="aVp-0S-54m"/>
+                    <connections>
+                        <outlet property="tableView" destination="kgy-Y3-xHp" id="Ln0-pD-uPw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K4S-oc-wQ9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
