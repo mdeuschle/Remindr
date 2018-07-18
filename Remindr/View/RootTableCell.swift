@@ -12,12 +12,36 @@ class RootTableCell: UITableViewCell {
 
     @IBOutlet private weak var collectionView: UICollectionView!
 
-    private let colors: [UIColor] = [.red, .green, .blue, .orange, .purple]
+    private let colors: [UIColor] = [.red, .green, .blue, .orange, .gray]
 
     override func awakeFromNib() {
         super.awakeFromNib()
         collectionView.delegate = self
         collectionView.dataSource = self
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        snapToCenter()
+    }
+
+    private func snapToCenter() {
+        let center = self.convert(self.center, to: collectionView)
+        guard let centerIndexPath = collectionView.indexPathForItem(at: center) else { return }
+        print(centerIndexPath)
+        collectionView.scrollToItem(at: centerIndexPath, at: .centeredHorizontally, animated: true)
+    }
+
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        print("DID END DECEL")
+        snapToCenter()
+    }
+
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        print("DID END DRAG")
+        if !decelerate {
+            snapToCenter()
+        }
     }
 }
 
@@ -28,7 +52,7 @@ extension RootTableCell: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return colors.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -42,7 +66,7 @@ extension RootTableCell: UICollectionViewDataSource {
 
 extension RootTableCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let cgSize = CGSize(width: collectionView.bounds.size.width - 120, height: 270)
+        let cgSize = CGSize(width: collectionView.bounds.size.width - 80, height: 270)
         return cgSize
     }
 }

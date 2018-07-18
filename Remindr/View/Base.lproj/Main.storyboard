@@ -30,21 +30,21 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="380"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="lwP-nP-T0r">
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="lwP-nP-T0r">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="379.5"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="20" minimumInteritemSpacing="20" id="uHc-Gi-MMP">
-                                                        <size key="itemSize" width="359" height="230"/>
+                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="20" minimumInteritemSpacing="0.0" id="uHc-Gi-MMP">
+                                                        <size key="itemSize" width="420" height="230"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                        <inset key="sectionInset" minX="80" minY="0.0" maxX="80" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
                                                         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="rootCollectionCell" id="Eq5-L3-24g" customClass="RootCollectionCell" customModule="Remindr" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="75" width="359" height="230"/>
+                                                            <rect key="frame" x="80" y="75" width="420" height="230"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                                <rect key="frame" x="0.0" y="0.0" width="359" height="230"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="420" height="230"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5LG-vP-byC">
@@ -99,6 +99,12 @@
                                                                 <constraint firstAttribute="trailing" secondItem="SVO-wJ-L8M" secondAttribute="trailing" constant="20" id="jZd-VZ-vei"/>
                                                                 <constraint firstAttribute="trailing" secondItem="82e-57-8MW" secondAttribute="trailing" constant="20" id="z3K-rO-awZ"/>
                                                             </constraints>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                                    <integer key="value" value="5"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
                                                             <connections>
                                                                 <outlet property="categoryImageView" destination="5LG-vP-byC" id="CuA-pE-iHR"/>
                                                                 <outlet property="categoryLabel" destination="82e-57-8MW" id="zUH-Pc-fNV"/>
