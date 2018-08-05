@@ -18,6 +18,7 @@ class RootTableCell: UITableViewCell {
         super.awakeFromNib()
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.decelerationRate = UIScrollViewDecelerationRateFast
     }
 
     override func layoutSubviews() {
@@ -66,7 +67,7 @@ extension RootTableCell: UICollectionViewDataSource {
 
 extension RootTableCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let cgSize = CGSize(width: collectionView.bounds.size.width - 80, height: 270)
+        let cgSize = CGSize(width: collectionView.bounds.size.width - 60, height: 270)
         return cgSize
     }
 }
